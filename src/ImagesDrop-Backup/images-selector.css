@@ -1,0 +1,527 @@
+@keyframes LeftIn {
+  0% {
+    /* transform: skewY(-20px);
+     */
+    transform: translateX(-50px);
+    opacity: 0;
+    max-width: 0px;
+    margin-right: 0px;
+    max-height: 0px;
+
+  }
+
+  40% {
+    max-width: 1000px;
+    max-height: 200px;
+    /* opacity: 0; */
+  }
+
+  to {
+    opacity: 1;
+
+  }
+}
+
+@keyframes LeftOut {
+  0% {
+    opacity: 1;
+    max-width: 200px;
+    max-height: 200px;
+
+  }
+
+  40% {
+    max-height: 0px;
+    opacity: 0;
+  }
+
+  100% {
+    max-width: 0px;
+    margin: 0px;
+    padding: 0px;
+    opacity: 0;
+    transform: translate(-50px, 0px);
+  }
+}
+
+@keyframes UpIn {
+  0% {
+    /* transform: skewY(-20px);
+     */
+    transform: translateY(50px);
+    opacity: 0;
+    max-width: 100px;
+    margin-right: 0px;
+    max-height: 0px;
+
+  }
+
+  40% {
+    /* max-width: 1000px; */
+    max-height: 200px;
+    /* opacity: 0; */
+  }
+
+  100% {
+    opacity: 1;
+    max-width: 1000px;
+  }
+}
+
+@keyframes UpOut {
+  0% {
+    opacity: 1;
+    max-height: 100px;
+  }
+
+  60% {
+    max-height: 0px;
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(-50px);
+    margin: 0px;
+    padding: 0px;
+
+  }
+}
+
+@keyframes mouseUpAnimation {
+  0.0% {
+    transform: translate(0, 0px);
+  }
+
+  30% {
+    transform: translate(0, -10px);
+  }
+
+  59.6% {
+    transform: translate(0, 0px);
+  }
+
+  72.9% {
+    transform: translate(0, -10px);
+  }
+
+  87.8% {
+    transform: translate(0, 0px);
+  }
+}
+
+
+/* ANIMATION */
+.in {
+  animation: LeftIn 1s forwards;
+}
+
+.out {
+  animation: LeftOut 1s forwards;
+  opacity: 0;
+  max-width: 0px;
+  max-height: 0px;
+}
+
+.upIn {
+  animation: UpIn 1s forwards;
+}
+
+.upOut {
+  animation: UpOut 1s alternate;
+  opacity: 0;
+}
+
+/* Box size and type */
+p {
+  color: inherit;
+  font-weight: inherit;
+}
+
+.line {
+  width: 5rem;
+  height: 5rem;
+}
+
+.small {
+  width: 7rem;
+  height: 7rem;
+}
+
+.medium {
+  width: 10rem;
+  height: 10rem;
+}
+
+.interhit {
+  height: 2.8rem;
+  width: 100%;
+  /* flex-direction: row; */
+  /* */
+
+}
+
+
+/* Contain */
+.images-container-picmode {
+  width: 100%;
+}
+
+.images-container-listmode {
+  width: 100%;
+
+}
+
+.editor-elumator {
+  height: fit-content;
+  /* background-color: aquamarine; */
+  flex-direction: column;
+  border: 2px black dashed;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  --medium: 8rem;
+  --images-selector-radius: 10px;
+}
+
+
+/* ---------------------------------------------------- */
+
+.images-box {
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  position: relative;
+  flex-wrap: wrap;
+  user-select: none;
+  min-height: 7rem;
+
+}
+
+.images-box>*:not(:last-child) {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.images-box.column {
+  flex-direction: column;
+  min-height: fit-content;
+}
+
+.images-box.column>* {
+  margin-right: 0px;
+
+}
+
+.images-box .image-container {
+  position: relative;
+  display: flex;
+  border-radius: 5px;
+  padding: 5px;
+  /* margin-right: 10px; */
+  overflow: hidden;
+  align-items: center;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  background-color: white;
+  transition-duration: 500ms;
+  overflow: hidden;
+
+}
+
+.images-box .image-container>*:not(:last-child) {
+  margin-right: 20px;
+  /*  */
+}
+
+.images-box .image-container.checked {
+  box-shadow: 0 25px 50px -12px rgba(51, 153, 187, 0.306);
+  background-color: rgba(51, 153, 187, 0.43);
+}
+
+.images-box .image-container.interhit {
+  width: 100%;
+  box-shadow: none;
+}
+
+
+/* ----------------------------------------------- */
+.image-container .group-select-box {
+  accent-color: #334155;
+}
+
+.image-container img {
+  aspect-ratio: 1/1;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+
+
+.image-container.interhit .hover-layer {
+  display: none;
+}
+
+.image-container .file-name {
+  /* flex-shrink: 1; */
+  transition-duration: 200ms;
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 500;
+
+}
+
+.image-container.interhit .file-size {
+  font-weight: 300;
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.335);
+  flex-shrink: 0;
+}
+
+.image-container .image-delete {
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  opacity: 0;
+  transition-duration: 500ms;
+}
+
+.image-container.medium .image-delete {
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  opacity: 0;
+  transition-duration: 500ms;
+}
+
+.image-container.interhit .image-delete {
+  position: relative;
+  opacity: 1;
+  padding: 0px;
+  flex-shrink: 0;
+
+}
+
+.image-container .image-delete svg {
+  width: 100%;
+  height: 100%;
+}
+
+.image-container .image-delete:hover svg {
+  /* background-image: radial-gradient(red, rgba(255, 255, 255, 0),rgba(255, 255, 255, 0)); */
+  fill: red;
+
+}
+
+.image-container .hover-layer {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  opacity: 0;
+  transition-duration: 500ms;
+  background-image: linear-gradient(rgba(255, 255, 255, 0), rgb(255, 255, 255, 0.7), rgb(255, 255, 255));
+
+}
+
+.image-container:hover .image-delete {
+  opacity: 1;
+}
+
+.image-container:hover .hover-layer {
+  /* opacity: 0.7; */
+  opacity: 1;
+
+}
+
+.image-container .icon-eye {
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  position: absolute;
+  left: 8px;
+  bottom: 2px;
+  opacity: 0;
+  transition-duration: 500ms;
+}
+
+.image-container .icon-eye svg {
+  width: 100%;
+  height: 100%;
+}
+
+.image-container.medium .icon-eye {
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+  position: absolute;
+  left: 8px;
+  bottom: 2px;
+  opacity: 0;
+  transition-duration: 500ms;
+}
+
+.image-container.interhit .icon-eye {
+  display: none;
+}
+
+/* ------------------------ */
+.images-box .button {
+  transition-duration: 500ms;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 5px;
+
+}
+
+.images-box .add-new-image {
+  background-color: rgba(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-weight: 600;
+  transition-duration: 0s;
+
+  /* border: 5px rgba(0, 0, 0, 0.131) dashed; */
+
+}
+
+.images-box .add-new-image:hover {
+  /* box-shadow: 0 25px 50px -12px rgb(194, 195, 197); */
+  background-color: rgba(238, 238, 238);
+  border: 2px gray solid;
+
+}
+
+.images-box .add-new-image:active {
+  transition-duration: 100ms;
+  box-shadow: 0 4px 6px -1px rgba(226, 255, 200, 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.images-box .add-new-image.interhit {
+  flex-direction: row;
+  border: 1px gray solid;
+}
+
+.images-box .add-new-image.interhit.drag-over {
+  flex-direction: row;
+  height: 100px;
+  border: 2px gray dashed;
+  position: relative;
+  transition-duration: 0.5s;
+}
+
+.images-box .add-new-image.drag-over {
+  background-color: rgba(238, 238, 238);
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  height: 100%;
+  width: 100%;
+  /* min-height: 150px; */
+}
+
+.images-box .add-new-image.drag-over * {
+  pointer-events: none;
+
+}
+
+.images-box .add-new-image .mouse-up {
+  animation: mouseUpAnimation 6s ease 0s infinite normal none;
+  width: 20px;
+  height: 20px;
+}
+
+.images-box .add-new-image .icon {
+  height: 25px;
+  width: 25px;
+}
+
+.images-box .group-delete-button {
+  background-color: #FF6677;
+  /* margin-block: 10px; */
+  color: #FFFF;
+  font-weight: 600;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.images-box .group-delete-button.interhit {
+  min-height: fit-content;
+}
+
+.images-box .group-delete-button:disabled {
+  background-color: #ff66784b;
+  color: #FFFF;
+  font-weight: 600;
+  cursor: not-allowed;
+
+}
+
+/* Delete line */
+
+
+.images-box .group-delete-button .multi-delete-pop {
+  display: flex;
+  align-items: center;
+  height: 20px;
+  width: 100%;
+  justify-content: space-evenly;
+  padding-block: 5px;
+  color: white;
+  fill: white;
+}
+
+.images-box .group-delete-button .multi-delete-pop.block {
+  display: flex;
+  flex-direction: column;
+}
+
+.multi-delete-pop .negative {
+  height: inherit;
+  color: inherit;
+}
+
+.multi-delete-pop button {
+  height: inherit;
+  display: flex;
+  align-items: center;
+  font-size: inherit;
+  font-weight: 600;
+  gap: 10px;
+  color: inherit;
+
+}
+
+.multi-delete-pop button span {
+  font-size: inherit;
+  font-weight: 600;
+  color: inherit;
+}
+
+.multi-delete-pop .negative:hover {
+  fill: #393E46;
+  color: #393E46;
+}
+
+.multi-delete-pop .confirm:hover {
+  fill: #FFD369;
+  color: #FFD369;
+
+}
