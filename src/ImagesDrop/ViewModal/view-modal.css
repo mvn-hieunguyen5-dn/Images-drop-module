@@ -1,0 +1,261 @@
+@keyframes ZoomOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  60% {
+    transform: scale(0);
+  }
+
+
+  100% {
+    transform: translateY(-50px);
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+@keyframes ZoomIn {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  60% {
+    opacity: 0;
+  }
+
+
+  80% {
+    transform: scale(1.1);
+  }
+
+  100% {
+
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes FadeIn {
+  from {
+    opacity: 0;
+
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes FadeOut {
+  from {
+    opacity: 1;
+
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+
+.fade-layer {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0px;
+  right: 0px;
+  background-color: rgba(0, 0, 0, 0.835);
+  z-index: 40;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.fade-layer.modal-out {
+  animation: FadeOut 0.6s forwards;
+}
+
+.fade-layer.modal-in {
+  animation: FadeIn 1s forwards;
+  opacity: 1;
+}
+
+
+
+
+.image-view-modal {
+  /* position: fixed;
+  top: 200px;
+  right: 500px; */
+  z-index: 40;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+
+  /* max-height: 80vh; */
+  /* max-width: 70vw; */
+  width: fit-content;
+  background-color: rgba(255, 255, 255, 0.96);
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+.image-view-modal.modal-out {
+  animation: ZoomOut 1s forwards;
+  transform: scale(0);
+}
+
+.image-view-modal.modal-in {
+  animation: ZoomIn 0.5s forwards;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.image-view-modal .header {
+  padding-inline: 20px;
+  height: 35px;
+  /* width: 100%; */
+  background-color: black;
+  color: white;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.image-view-modal .flex-space {
+  flex-grow: 1;
+}
+
+.image-view-modal .action-bar {
+  flex-wrap: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 10px;
+
+
+}
+
+.image-view-modal .action-bar button {
+  height: 10px;
+  width: 10px;
+  border-radius: 200px;
+
+}
+
+.image-view-modal .action-bar button {
+  height: 13px;
+  width: 13px;
+  border-radius: 200px;
+
+}
+
+.image-view-modal .action-bar .turn-off {
+  background-color: rgb(239 68 68);
+}
+
+.image-view-modal .action-bar .turn-off:hover {
+  background-color: rgb(248 113 113);
+
+}
+
+.modal-img-container {
+  position: relative;
+}
+
+.modal-img-container img {
+  /* height: 100%;
+  width: 100%;
+  object-fit: fill; */
+  object-fit: cover;
+  width: 100%;
+  height: 60vh;
+}
+
+.modal-img-container .size {
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  color: aliceblue;
+}
+
+@keyframes Direction {
+  from {}
+
+  to {
+    box-shadow: 0px 0px 0px 0px;
+    top: 5px;
+    left: 5px;
+  }
+}
+
+kbd {
+  /* font-size: 10px;
+  color:black;
+  padding: 2px 5px;
+  background-color: white;
+  border: 1px solid white;
+border-radius: 5px; */
+
+  font-family: "Open Sans", sans-serif;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  animation: Direction 2s forwards infinite;
+  border-radius: 10px;
+}
+
+.show-index-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+
+}
+
+.current-index-line {
+  position: relative;
+  height: 2.5rem;
+}
+
+.current-index {
+  font-weight: 600;
+  position: absolute;
+  top: 0px;
+  transition-duration: 200ms;
+  --transform-translate-x: -50%;
+  color: #ffffff;
+  transform: translateX(-50%);
+}
+
+.current-index-boxs {
+  display: flex;
+  align-items: center;
+  width: 24rem;
+}
+
+.current-index-boxs .box {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  transition-duration: 200ms;
+  flex-grow: 1;
+  height: 0.25rem;
+  border-radius: 0.375rem;
+}
+.current-index-boxs .box.lightbox{
+  background-color: white;
+}
+.current-index-boxs .box.blackbox{
+  background-color: black;
+}
